@@ -4,21 +4,21 @@
 // 1 <= A <= 10^9
 
 class Solution {
-    private final int MOD = 1000 * 1000 * 1000 + 7;
 
     public int solve(int A) {
         A++;
         long totalOnes = 0;
-        long powerOfTwo = 1;
-        while (powerOfTwo <= A) {
-            long totalZeroOnePairs = A / powerOfTwo;
+        long pairSize = 1; //power of 2
+        while (pairSize <= A) {
+            long totalZeroOnePairs = A / pairSize;
             long totalOnePairs = totalZeroOnePairs / 2;
-            totalOnes = (totalOnes + (totalOnePairs * powerOfTwo)) % MOD;
+            int mod = 1000 * 1000 * 1000 + 7;
+            totalOnes = (totalOnes + (totalOnePairs * pairSize)) % mod;
 
             if (isOdd(totalZeroOnePairs)) {
-                totalOnes = (totalOnes + (A % powerOfTwo)) % MOD;
+                totalOnes = (totalOnes + (A % pairSize)) % mod;
             }
-            powerOfTwo *= 2;
+            pairSize *= 2;
         }
 
         return (int) totalOnes;
