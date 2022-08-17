@@ -8,21 +8,30 @@
 
 class Solution {
     public int solve(int A, int B, int C) {
-        int[][] dp = new int[A + 1][B + 1];
-        for(int i = 1; i < A + 1; i++) {
-            for(int j = 1; j < B + 1; j++) {
+        
+        int[] prev = new int[B + 1];
+        int[] curr = new int[B + 1];
+
+        for(int i = 1; i < A+1; i++) {
+            for(int j = 1; j < B+1; j++) {
                 if(i == j) {
-                    dp[i][j] = 1;
+                    curr[j] = 1;
                 } else if(i < j) {
-                    dp[i][j] = 0;
-                    break;
+                    curr[j] = 0;
                 } else if(j == 1) {
-                    dp[i][j] = i;
+                    curr[j] = i;
                 } else {
-                    dp[i][j] = (dp[i-1][j-1] + dp[i-1][j]) % C;
+                    curr[j] = (prev[j-1] + prev[j]) % C;
                 }
             }
+            copyArray(curr, prev);
         }
-        return dp[A][B] % C;
+        return curr[B] % C;
+    }
+
+    private void copyArray(int[] fromArray, int[] toArray) {
+        for(int i = 0; i < fromArray.length; i++) {
+            toArray[i] = fromArray[i];
+        }
     }
 }
