@@ -2,7 +2,7 @@
 // For example, f(2, 7) = 2, since the binary representation of 2 and 7 are 010 and 111, respectively. 
 // The first and the third bit differ, so f(2, 7) = 2.
 // You are given an array of N positive integers, A1, A2,..., AN. 
-// Find sum of f(Ai, Aj) for all pairs (i, j) such that 1 ≤ i, j ≤ N. Return the answer modulo 10^9+7.
+// Find sum of f(Ai, Aj) for all pairs (i, j) such that 1 <= i, j <= N. Return the answer modulo 10^9+7.
 
 // 1 <= N <= 10^5
 
