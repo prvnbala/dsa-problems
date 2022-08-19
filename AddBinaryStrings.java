@@ -4,7 +4,7 @@
 // Return a + b = "111".
 
 
-class Solution {
+class AddBinaryStrings {
     public String addBinary(String A, String B) {
         int i = A.length() - 1;
         int j = B.length() - 1;
