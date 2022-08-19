@@ -8,7 +8,7 @@
 
 // 1 <= length of the each String <= 100
 
-class Solution {
+class CheckTwoBracketExpressions {
     public int solve(String A, String B) {
         boolean[] signInfoForEachCharInA = getSignInfoForCharsInExpression(A);
         boolean[] signInfoForEachCharInB = getSignInfoForCharsInExpression(B);
