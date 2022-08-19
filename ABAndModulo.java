@@ -2,7 +2,7 @@
 // 1 <= A, B <= 10^9
 // A != B
 
-class Solution {
+class ABAndModulo {
     public int solve(int A, int B) {
         return Math.abs(A-B);
     }
