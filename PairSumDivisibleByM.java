@@ -8,14 +8,18 @@
 // 1 <= A[i] <= 10^9
 // 1 <= B <= 10^6
 
-class Solution {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+class PairSumDivisibleByM {
 
     //solution idea: (a+b) % c = (a%c + b%c) % c;
     int mod = 1000 * 1000 * 1000 + 7;
 
     public int solve(ArrayList<Integer> A, int B) {
         Map<Integer, Integer> modValueCounter = new HashMap<>();
-        for(int i = 0; i < A.size(); i++) {
+        for (int i = 0; i < A.size(); i++) {
             int x = A.get(i);
             int modValue = x % B;
             int currentCount = modValueCounter.containsKey(modValue) ? modValueCounter.get(modValue) : 0;
@@ -24,13 +28,13 @@ class Solution {
         }
 
         long ans = 0;
-        for(int x : A) {
+        for (int x : A) {
             int xCompliment = (B - x) % B;
-            if(modValueCounter.containsKey(x) && modValueCounter.containsKey(xCompliment)) {
+            if (modValueCounter.containsKey(x) && modValueCounter.containsKey(xCompliment)) {
                 int xCount = modValueCounter.get(x);
                 int xComplimentCount = modValueCounter.get(xCompliment);
                 long totalPairs = 0;
-                if(x == xCompliment) {
+                if (x == xCompliment) {
                     totalPairs = ((1L * xCount * (xCount - 1)) / 2) % mod;
                 } else {
                     totalPairs = (1L * xCount * xComplimentCount) % mod;

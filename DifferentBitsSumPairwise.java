@@ -8,15 +8,17 @@
 
 // 1 <= A[i] <= 2^31 - 1
 
-class Solution {
+import java.util.ArrayList;
+
+class DifferentBitsSumPairwise {
     public int cntBits(ArrayList<Integer> A) {
         long totalElements = A.size();
-        int mod = 1000 * 1000 * 1000 + 7; 
+        int mod = 1000 * 1000 * 1000 + 7;
         long sum = 0;
-        for(int i = 0; i < 32; i++) {
+        for (int i = 0; i < 32; i++) {
             long countOfSetBitsAtIthPosition = 0;
-            for(int x : A) {
-                if(isBitSetAtIthPosition(x, i)) {
+            for (int x : A) {
+                if (isBitSetAtIthPosition(x, i)) {
                     countOfSetBitsAtIthPosition++;
                 }
             }

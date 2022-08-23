@@ -8,12 +8,14 @@
 
 // 1 <= A <= 500000
 
+import java.util.ArrayList;
+
 class FizzBuzz {
     public ArrayList<String> fizzBuzz(int A) {
         ArrayList<String> result = new ArrayList<>();
-        for(int i = 1; i <= A; i++) {
+        for (int i = 1; i <= A; i++) {
             String value;
-            if(isMultiple(i, 15)) {
+            if (isMultiple(i, 15)) {
                 value = "FizzBuzz";
             } else if (isMultiple(i, 3)) {
                 value = "Fizz";

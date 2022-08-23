@@ -5,15 +5,15 @@
 // 1<= B <= 10^9
 // B is a prime number
 
-class Solution {
+class PrimeModuloInverse {
     public int solve(int A, int B) {
         return binaryExponent(A, B - 2, B);
     }
 
     private int binaryExponent(long base, long power, long mod) {
-        long ans = 1; 
-        while(power > 0) {
-            if(isOdd(power)) {
+        long ans = 1;
+        while (power > 0) {
+            if (isOdd(power)) {
                 ans = (ans * base) % mod;
             }
             base = (base * base) % mod;

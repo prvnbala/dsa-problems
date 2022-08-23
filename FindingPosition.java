@@ -4,12 +4,12 @@
 
 // 1 <= A <= 10^9
 
-class Solution {
+class FindingPosition {
     public int solve(int A) {
         int ans = 1;
-        while(ans <= A) {
+        while (ans <= A) {
             ans *= 2;
         }
-        return ans/2;
+        return ans / 2;
     }
 }

@@ -8,6 +8,9 @@
 
 // 1 <= length of the each String <= 100
 
+import java.util.Arrays;
+import java.util.Stack;
+
 class CheckTwoBracketExpressions {
     public int solve(String A, String B) {
         boolean[] signInfoForEachCharInA = getSignInfoForCharsInExpression(A);
@@ -21,11 +24,11 @@ class CheckTwoBracketExpressions {
         Stack<Boolean> globalSign = new Stack<>();
         globalSign.push(true);
 
-        for(int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
             char x = input.charAt(i);
 
-            if(isOpeningParanthesis(x)) {
-                if(isAdjacentSignNegative(input, i)) {
+            if (isOpeningParanthesis(x)) {
+                if (isAdjacentSignNegative(input, i)) {
                     updateGlobalSign(globalSign, true);
                 } else {
                     updateGlobalSign(globalSign, false);
@@ -45,9 +48,9 @@ class CheckTwoBracketExpressions {
     }
 
     private boolean isAdjacentSignNegative(String input, int index) {
-        int adjacentIndex = index - 1; 
-        if(adjacentIndex < 0) return false;
-        if(isMinus(input.charAt(adjacentIndex))) return true;
+        int adjacentIndex = index - 1;
+        if (adjacentIndex < 0) return false;
+        if (isMinus(input.charAt(adjacentIndex))) return true;
         return false;
     }
 
@@ -66,8 +69,8 @@ class CheckTwoBracketExpressions {
     private void updateGlobalSign(Stack<Boolean> stack, boolean reverseSign) {
         boolean currentGlobalSign = stack.peek();
         boolean newGlobalSign = currentGlobalSign;
-        if(reverseSign) {
-            newGlobalSign = ! currentGlobalSign;
+        if (reverseSign) {
+            newGlobalSign = !currentGlobalSign;
         }
         stack.push(newGlobalSign);
     }
@@ -77,10 +80,10 @@ class CheckTwoBracketExpressions {
     }
 
     private boolean getLocalSign(String input, int index) {
-        return (! isAdjacentSignNegative(input, index));
+        return (!isAdjacentSignNegative(input, index));
     }
 
     private boolean isOperand(char x) {
-        return (x >= 'a' && x <='z');
+        return (x >= 'a' && x <= 'z');
     }
 }

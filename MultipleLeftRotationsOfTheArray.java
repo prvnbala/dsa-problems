@@ -7,11 +7,14 @@
 // 1 <= length of both arrays <= 2000 
 // -10^9 <= A[i] <= 10^9 0 <= B[i] <= 2000
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 class MultipleLeftRotationsOfTheArray {
     public ArrayList<ArrayList<Integer>> solve(ArrayList<Integer> A, ArrayList<Integer> B) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
 
-        for(int rotationCount : B) {
+        for (int rotationCount : B) {
             ArrayList<Integer> currentRow = new ArrayList<>(A);
             leftRotateArrayNTimes(currentRow, rotationCount);
             result.add(currentRow);
@@ -30,7 +33,7 @@ class MultipleLeftRotationsOfTheArray {
     }
 
     private ArrayList<Integer> reverseSubArray(ArrayList<Integer> array, int fromIndex, int toIndex) {
-        while(fromIndex < toIndex) {
+        while (fromIndex < toIndex) {
             Collections.swap(array, fromIndex++, toIndex--);
         }
         return array;

@@ -6,13 +6,15 @@
 // 2 <= A <= 5*10^6
 // 0 <= A <= INTMAX
 
-class Solution {
+import java.util.List;
+
+class SingleNumber2 {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int singleNumber(final List<Integer> A) {
         int result = 0;
-        for(int i = 0; i < 32; i++) {
+        for (int i = 0; i < 32; i++) {
             int count = countSetBitAtPosition(A, i);
-            if(! isDivisible(count , 3)) {
+            if (!isDivisible(count, 3)) {
                 result = setBitAtPosition(result, i);
             }
         }
@@ -21,8 +23,8 @@ class Solution {
 
     private int countSetBitAtPosition(List<Integer> A, int position) {
         int count = 0;
-        for(int x : A) {
-            if(isSetBitAtPosition(x, position)) {
+        for (int x : A) {
+            if (isSetBitAtPosition(x, position)) {
                 count++;
             }
         }

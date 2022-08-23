@@ -5,8 +5,7 @@
 // 1 <= A[i] <=10^8
 // 1 <= B <= 10^9
 
-import java.lang.*;
-import java.util.*;
+import java.util.Scanner;
 
 class RotationGame {
     public static void main(String[] args) {
@@ -14,7 +13,7 @@ class RotationGame {
         // Please take input and print output to standard input/output (stdin/stdout)
         // DO NOT USE ARGUMENTS FOR INPUTS
         // E.g. 'Scanner' for input & 'System.out' for output
-        
+
         Scanner consoleInput = new Scanner(System.in);
         RotationGame program = new RotationGame();
         int[] inputArray = program.getArrayFromConsoleInput(consoleInput);
@@ -27,7 +26,7 @@ class RotationGame {
     private int[] getArrayFromConsoleInput(Scanner consoleInput) {
         int arraySize = consoleInput.nextInt();
         int[] result = new int[arraySize];
-        for(int i = 0; i < arraySize; i++) {
+        for (int i = 0; i < arraySize; i++) {
             result[i] = consoleInput.nextInt();
         }
         return result;
@@ -44,7 +43,7 @@ class RotationGame {
     }
 
     private int[] reverseSubArray(int[] array, int fromIndex, int toIndex) {
-        while(fromIndex < toIndex) {
+        while (fromIndex < toIndex) {
             int temp = array[fromIndex];
             array[fromIndex++] = array[toIndex];
             array[toIndex--] = temp;
@@ -53,7 +52,7 @@ class RotationGame {
     }
 
     private void printArrayElements(int[] array) {
-        for(int x : array) {
+        for (int x : array) {
             System.out.print(x + " ");
         }
         System.out.println();

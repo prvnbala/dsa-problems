@@ -15,6 +15,9 @@
 // 1 <= size of the array <= 1000000
 
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 class AddOneToNumber {
     public ArrayList<Integer> plusOne(ArrayList<Integer> A) {
         Stack<Integer> digits = getStackOfDigitsAfterIncrement(A);
@@ -26,21 +29,21 @@ class AddOneToNumber {
         Stack<Integer> digitSums = new Stack<>();
         int lastIndex = A.size() - 1;
         int carry = 1;
-        for(int i = lastIndex; i >= 0; i--) {
+        for (int i = lastIndex; i >= 0; i--) {
             int currentDigit = A.get(i);
             int digitSum = currentDigit + carry;
             carry = digitSum / 10;
             digitSum = digitSum % 10;
             digitSums.push(digitSum);
         }
-        if(carry > 0) {
+        if (carry > 0) {
             digitSums.push(carry);
         }
         return digitSums;
     }
 
     private Stack<Integer> removeLeadingZerosIfPresent(Stack<Integer> digits) {
-        while(digits.peek() == 0) {
+        while (digits.peek() == 0) {
             digits.pop();
         }
         return digits;
@@ -48,7 +51,7 @@ class AddOneToNumber {
 
     private ArrayList<Integer> getListFromStackTopDown(Stack<Integer> stack) {
         ArrayList<Integer> result = new ArrayList<>();
-        while(! stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             result.add(stack.pop());
         }
         return result;

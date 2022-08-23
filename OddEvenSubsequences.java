@@ -20,22 +20,24 @@
 // 1 <= N <= 100000
 // 1 <= A[i] <= 10^9 
 
+import java.util.ArrayList;
+
 class OddEvenSubsequences {
     public int solve(ArrayList<Integer> A) {
         int lengthOfSubsequenceWithOddStart = 0;
         int lengthOfSubsequenceWithEvenStart = 0;
 
-        for(int i = 0; i < A.size(); i++) {
+        for (int i = 0; i < A.size(); i++) {
             int number = A.get(i);
-            if(isOdd(number) && lengthOfSubsequenceWithOddStart == 0) {
+            if (isOdd(number) && lengthOfSubsequenceWithOddStart == 0) {
                 lengthOfSubsequenceWithOddStart = findOddEvenSubsequence(A, i);
-            } 
-            
-            if(! isOdd(number) && lengthOfSubsequenceWithEvenStart == 0) {
-                lengthOfSubsequenceWithEvenStart = findOddEvenSubsequence(A, i);
-            } 
+            }
 
-            if(lengthOfSubsequenceWithOddStart != 0 && lengthOfSubsequenceWithEvenStart != 0) {
+            if (!isOdd(number) && lengthOfSubsequenceWithEvenStart == 0) {
+                lengthOfSubsequenceWithEvenStart = findOddEvenSubsequence(A, i);
+            }
+
+            if (lengthOfSubsequenceWithOddStart != 0 && lengthOfSubsequenceWithEvenStart != 0) {
                 break;
             }
         }
@@ -46,14 +48,14 @@ class OddEvenSubsequences {
     private int findOddEvenSubsequence(ArrayList<Integer> list, int startPosition) {
         int startValue = list.get(startPosition);
         boolean needOdd = !isOdd(startValue);
-        
+
         int length = 1;
-        for(int i = startPosition + 1; i < list.size(); i++) {
+        for (int i = startPosition + 1; i < list.size(); i++) {
             int number = list.get(i);
-            if(isOdd(number) && needOdd) {
+            if (isOdd(number) && needOdd) {
                 length++;
                 needOdd = false;
-            } else if(!isOdd(number) && !needOdd) {
+            } else if (!isOdd(number) && !needOdd) {
                 length++;
                 needOdd = true;
             }
@@ -62,6 +64,6 @@ class OddEvenSubsequences {
     }
 
     private boolean isOdd(int number) {
-        return (number % 2) != 0; 
+        return (number % 2) != 0;
     }
 }

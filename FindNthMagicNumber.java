@@ -5,11 +5,11 @@
 
 // 1 <= A <= 5000
 
-class Solution {
+class FindNthMagicNumber {
     public int solve(int A) {
         int ans = 0;
-        for(int i = 0; i < 32; i++) {
-            if(isSetBitAtPosition(A, i)) {
+        for (int i = 0; i < 32; i++) {
+            if (isSetBitAtPosition(A, i)) {
                 ans += Math.pow(5, i + 1);
             }
         }

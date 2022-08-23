@@ -8,24 +8,24 @@
 // 1 <= B <= A
 // A <= C <= 10^9+7
 
-class Solution {
+class ComputeNCRModP {
     public int solve(int A, int B, int C) {
         int denominatorFactorialToConsider = Math.min(B, A - B);
-        int denominatorFactorialToCancel   = Math.max(B, A - B); //cancel the biggest value with numerator
+        int denominatorFactorialToCancel = Math.max(B, A - B); //cancel the biggest value with numerator
 
-        long numeratorFactorial = 1L; 
-        for(long i = A; i > denominatorFactorialToCancel; i--) {
+        long numeratorFactorial = 1L;
+        for (long i = A; i > denominatorFactorialToCancel; i--) {
             numeratorFactorial = (numeratorFactorial * i) % C;
-            
+
         }
 
         long denominatorFactorial = 1L;
-        for(int i = 1; i <= denominatorFactorialToConsider; i++) {
-            denominatorFactorial = (denominatorFactorial * i) % C; 
+        for (int i = 1; i <= denominatorFactorialToConsider; i++) {
+            denominatorFactorial = (denominatorFactorial * i) % C;
         }
-        
+
         //modulo inverse denominator to multiply with numerator 
-        long denominatorFactorialInverse = primeModuloInverse(denominatorFactorial, C); 
+        long denominatorFactorialInverse = primeModuloInverse(denominatorFactorial, C);
         long result = (numeratorFactorial * denominatorFactorialInverse) % C;
         return (int) result;
     }
@@ -35,9 +35,9 @@ class Solution {
     }
 
     private int binaryExponentiation(long base, long power, long mod) {
-        long ans = 1; 
-        while(power > 0) {
-            if(isOdd(power)) {
+        long ans = 1;
+        while (power > 0) {
+            if (isOdd(power)) {
                 ans = (ans * base) % mod;
             }
             base = (base * base) % mod;

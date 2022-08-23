@@ -5,12 +5,14 @@
 // -1e9 <= A[i] <= 1e9
 // There is atleast 1 odd and 1 even number in A
 
-class Solution {
+import java.util.ArrayList;
+
+class MinimumPicks {
     public int solve(ArrayList<Integer> A) {
         int evenMaximum = Integer.MIN_VALUE;
         int oddMinimum = Integer.MAX_VALUE;
-        for(int x : A) {
-            if(isOdd(x)) {
+        for (int x : A) {
+            if (isOdd(x)) {
                 oddMinimum = Math.min(oddMinimum, x);
             } else {
                 evenMaximum = Math.max(evenMaximum, x);
@@ -18,7 +20,7 @@ class Solution {
         }
         return evenMaximum - oddMinimum;
     }
-    
+
     private boolean isOdd(int x) {
         return x % 2 != 0;
     }

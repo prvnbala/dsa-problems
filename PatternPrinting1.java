@@ -7,11 +7,14 @@
 
 // 1 <= A <= 1000
 
-class Solution {
+import java.util.ArrayList;
+import java.util.Collections;
+
+class PatternPrinting1 {
     public ArrayList<ArrayList<Integer>> solve(int A) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         ArrayList<Integer> master = new ArrayList<>(Collections.nCopies(A, 0));
-        for(int i = 0; i < A; i++) {
+        for (int i = 0; i < A; i++) {
             master.set(i, i + 1);
             result.add(new ArrayList<>(master));
         }

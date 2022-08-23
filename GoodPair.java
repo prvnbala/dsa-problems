@@ -8,12 +8,16 @@
 // 1 <= B <= 10^9
 
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 class GoodPair {
     public int solve(ArrayList<Integer> A, int B) {
         Set<Integer> visitedElements = new HashSet<>();
-        for(int currentValue : A) {
+        for (int currentValue : A) {
             int expectedPairValue = B - currentValue;
-            if(visitedElements.contains(expectedPairValue)) {
+            if (visitedElements.contains(expectedPairValue)) {
                 return 1;
             } else {
                 visitedElements.add(currentValue);

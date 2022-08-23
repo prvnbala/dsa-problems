@@ -3,11 +3,14 @@
 // 1 <= N <= 1000000
 // 1 <= A[i] <= 1000
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 class TimeToEquality {
     public int solve(ArrayList<Integer> A) {
         int maxValue = Collections.max(A);
         int result = 0;
-        for(int x : A) {
+        for (int x : A) {
             result += (maxValue - x);
         }
         return result;

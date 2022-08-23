@@ -3,20 +3,20 @@
 
 // 1 <= A <= 50000
 
-class Solution {
+class LuckyNumbers {
     public int solve(int A) {
         int[] primeDivisorCount = new int[A + 1];
-        for(int i = 2; i <= A; i++) {
-            if(primeDivisorCount[i] == 0) { //meaning current number is prime
-                for(int j = 2 * i; j <= A; j += i) {
+        for (int i = 2; i <= A; i++) {
+            if (primeDivisorCount[i] == 0) { //meaning current number is prime
+                for (int j = 2 * i; j <= A; j += i) {
                     primeDivisorCount[j]++;
                 }
             }
         }
 
         int result = 0;
-        for(int x : primeDivisorCount) {
-            if(x == 2) {
+        for (int x : primeDivisorCount) {
+            if (x == 2) {
                 result++;
             }
         }

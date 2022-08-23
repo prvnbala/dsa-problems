@@ -6,12 +6,14 @@
 
 // -10^9 <= A[i] <= 10^9
 
-class Solution {
+import java.util.ArrayList;
+
+class ElementsWithTwoGreaterElements {
     public ArrayList<Integer> solve(ArrayList<Integer> A) {
         int firstMax = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
-        for(int x : A) {
-            if(x > firstMax) {
+        for (int x : A) {
+            if (x > firstMax) {
                 secondMax = firstMax;
                 firstMax = x;
             } else if (x > secondMax) {
@@ -20,8 +22,8 @@ class Solution {
         }
 
         ArrayList<Integer> result = new ArrayList<>();
-        for(int x : A) {
-            if(x < secondMax) {
+        for (int x : A) {
+            if (x < secondMax) {
                 result.add(x);
             }
         }

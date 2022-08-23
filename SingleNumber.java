@@ -3,13 +3,15 @@
 // 2 <= |A| <= 2000000
 // 0 <= A[i] <= INTMAX
 
-class Solution {
+import java.util.List;
+
+class SingleNumber {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int singleNumber(final List<Integer> A) {
-        int ans = 0; 
-        for(Integer x: A) {
-            ans = ans^x;
+        int ans = 0;
+        for (Integer x : A) {
+            ans = ans ^ x;
         }
-        return ans; 
+        return ans;
     }
 }

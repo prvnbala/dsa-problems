@@ -3,7 +3,7 @@
 
 // 1 <= A <= 10^9
 
-class Solution {
+class CountTotalSetBits {
 
     public int solve(int A) {
         A++;

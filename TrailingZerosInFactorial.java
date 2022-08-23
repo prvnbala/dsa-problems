@@ -3,10 +3,10 @@
 
 // 1 <= A <= 10^9
 
-class Solution {
+class TrailingZerosInFactorial {
     public int trailingZeroes(int A) {
         int result = 0;
-        while(A > 0) {
+        while (A > 0) {
             result += A / 5;
             A /= 5;
         }
